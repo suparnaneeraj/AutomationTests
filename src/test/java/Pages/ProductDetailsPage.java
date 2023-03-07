@@ -8,7 +8,7 @@ public class ProductDetailsPage {
 	private WebDriver driver;
 	private By addToCartButton=By.xpath("//button[text()='Add to cart']");
 	private By backToProducts=By.id("back-to-products");
-	private By getProductDetailsPage =By.className("inventory_details_name large_size");
+	private By getProductName =By.cssSelector("div[class='inventory_details_name large_size']");
 	public ProductDetailsPage(WebDriver driver)
 	{
 		this.driver=driver;
@@ -22,8 +22,8 @@ public class ProductDetailsPage {
 	{
 		driver.findElement(backToProducts).click();
 	}
-	public String getProductDetailsPage()
+	public String getProductDetails()
 	{
-		return driver.findElement(getProductDetailsPage).getText();
+		return driver.findElement(getProductName).getText();
 	}
 }
