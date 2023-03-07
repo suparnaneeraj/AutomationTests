@@ -15,7 +15,7 @@ public class ProductsPage {
     public  ProductsPage(WebDriver driver)
     {
         this.driver=driver;
-    	productDetailspage=new ProductDetailsPage(this.driver);
+    	
 
     }
     public String getProductPageTitle()
@@ -33,14 +33,14 @@ public class ProductsPage {
     		productsArray=product.split(",");
     		for(int i=0;i< productsArray.length;i++)
     		{
-    			driver.findElement(By.xpath("//div[@class='inventory_item_name' and text()='"+productsArray[i]+"'")).click();
+    			driver.findElement(By.xpath("//div[@class='inventory_item_name' and text()='"+productsArray[i]+"']")).click();
     			productDetailspage.addToCart();
     			productDetailspage.backToProducts();
     		}
     	}
     	else
     	{
-    		driver.findElement(By.xpath("//div[@class='inventory_item_name' and text()='"+product+"'")).click();
+    		driver.findElement(By.xpath("//div[@class='inventory_item_name' and text()='"+product+"']")).click();
     		productDetailspage.addToCart();
 			productDetailspage.backToProducts();
     	}
@@ -48,12 +48,13 @@ public class ProductsPage {
     	
     	public void GoToProductDetailsPage(String product)
     	{
-    		driver.findElement(By.xpath("//div[@class='inventory_item_name' and text()='"+product+"'")).click();
+    		driver.findElement(By.xpath("//div[@class='inventory_item_name' and text()='"+product+"']")).click();
     		
     	}
     	public String getProductDetailsPage()
     	{
-    		return productDetailspage.getProductDetailsPage();
+    		productDetailspage=new ProductDetailsPage(this.driver);
+    		return productDetailspage.getProductDetails();
     	}
    
 }

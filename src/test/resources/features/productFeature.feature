@@ -9,7 +9,7 @@ Feature: Add to cart Functionality
     Then user is navigated to product details page 
   
     Examples: 
-      | products  |
+      | product	|
       |	Sauce Labs Backpack	|
       
       
