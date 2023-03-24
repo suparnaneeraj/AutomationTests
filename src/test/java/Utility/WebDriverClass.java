@@ -18,8 +18,10 @@ public class WebDriverClass {
 
     public void CreateWebDriver()
     {
+    	ChromeOptions option = new ChromeOptions();
+        option.addArguments("--remote-allow-origins=*");
         WebDriverManager.chromedriver().setup();
-        driver=new ChromeDriver();
+        driver = new ChromeDriver(option);
         driver.manage().window().maximize();
         driver.get("https://www.saucedemo.com/");
     }
