@@ -26,4 +26,10 @@ public class ProductDetailsPage {
 	{
 		return driver.findElement(getProductName).getText();
 	}
+	public void backToProductsPage()
+	{
+		driver.findElement(backToProducts).click();
+	}
+
+	
 }
