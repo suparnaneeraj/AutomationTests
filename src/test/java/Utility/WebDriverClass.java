@@ -20,7 +20,9 @@ public class WebDriverClass {
     {
     	ChromeOptions option = new ChromeOptions();
         option.addArguments("--remote-allow-origins=*");
-        WebDriverManager.chromedriver().setup();
+//        WebDriverManager.chromedriver().setup();
+        String chromelocation=System.getProperty("user.dir")+"/src/test/resources/drivers/chromedriver";
+    	System.setProperty("webdriver.chrome.driver", chromelocation);
         driver = new ChromeDriver(option);
         driver.manage().window().maximize();
         driver.get("https://www.saucedemo.com/");

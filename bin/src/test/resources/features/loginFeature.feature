@@ -11,8 +11,7 @@ Feature: Login Functionality
       | username  | password  |
       | standard_user | secret_sauce  |
       | problem_user  | secret_sauce  |
-
-   @Test
+      
   Scenario Outline: Verify if the login fails on providing incorrect credentials
 
     Given the user is in the login page
