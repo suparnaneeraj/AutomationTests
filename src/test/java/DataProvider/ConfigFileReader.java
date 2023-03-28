@@ -42,4 +42,12 @@ public class ConfigFileReader {
 		else
 			return "No url  specified in properties file";
 	}
+	public String getBrowser()
+	{
+		String browser=properties.getProperty("browser");
+		if(browser!=null)
+			return browser;
+		else
+			return "browser not found in properties file";
+	}
 }
