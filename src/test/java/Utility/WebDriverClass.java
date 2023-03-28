@@ -1,6 +1,9 @@
 package Utility;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
+import DataProvider.ConfigFileReader;
+
 import org.openqa.selenium.WebDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -18,14 +21,14 @@ public class WebDriverClass {
 
     public void CreateWebDriver()
     {
+    	ConfigFileReader configFileReader=new ConfigFileReader();
     	ChromeOptions option = new ChromeOptions();
         option.addArguments("--remote-allow-origins=*");
 //        WebDriverManager.chromedriver().setup();
-        String chromelocation=System.getProperty("user.dir")+"/src/test/resources/drivers/chromedriver";
+        String chromelocation=System.getProperty("user.dir")+configFileReader.getDriverPath();
     	System.setProperty("webdriver.chrome.driver", chromelocation);
         driver = new ChromeDriver(option);
-        driver.manage().window().maximize();
-        driver.get("https://www.saucedemo.com/");
+        driver.get(configFileReader.getURL());
     }
 
 }

@@ -11,7 +11,7 @@ import io.cucumber.java.en.Then;
 import Utility.WebDriverClass;
 import io.cucumber.java.Before;
 
-public class LoginStepDefinition {
+public class LoginStepDefinition{
     protected LoginPage loginpage;
     private String errormessage ="Epic sadface: Username and password do not match any user in this service";
     private WebDriverClass webDriverClass=new WebDriverClass();
