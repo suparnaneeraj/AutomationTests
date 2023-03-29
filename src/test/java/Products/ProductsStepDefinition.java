@@ -33,6 +33,7 @@ public class ProductsStepDefinition {
 	    public void setUp()
 	    {
 	        webDriverClass.CreateWebDriver();
+	        webDriverClass.openApplication();
 	        loginPage=new LoginPage(webDriverClass.getDriver());
 	        productPage=new ProductsPage(webDriverClass.getDriver());
 	        cartPage=new CartPage(webDriverClass.getDriver());
@@ -42,7 +43,7 @@ public class ProductsStepDefinition {
 	@Given("^the user is in products page$")
 	public void the_user_is_in_products_page() throws Throwable{
 		try {
-		webDriverClass.openApplication();
+		
 		loginPage.EnterCredentials("standard_user", "secret_sauce");
 		loginPage.Login();
 		Assert.assertTrue((productPage.getProductPageTitle()).equals("Products"));
