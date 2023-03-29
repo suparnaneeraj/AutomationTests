@@ -1,5 +1,9 @@
 package Utility;
 
+import java.sql.Time;
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -15,8 +19,6 @@ public class WebDriverClass extends ConfigFileReader {
 	{
 		try {
 		String driverlocation=System.getProperty("user.dir")+getDriverPath();
-		System.out.println(driverlocation);
-		System.out.println(getBrowser());
 		switch(getBrowser())
 		{
 		case "chrome": 
@@ -25,6 +27,7 @@ public class WebDriverClass extends ConfigFileReader {
 //      	WebDriverManager.chromedriver().setup();
 			System.setProperty("webdriver.chrome.driver", driverlocation);
 			driver = new ChromeDriver(option);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(getImplicitWait()));
 			break;
 		case "safari":
 			driver=new SafariDriver();

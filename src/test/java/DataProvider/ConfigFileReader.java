@@ -50,4 +50,13 @@ public class ConfigFileReader {
 		else
 			return "browser not found in properties file";
 	}
+	public long getImplicitWait()
+	{
+		Long implicitwait=Long.parseLong(properties.getProperty("implicitwait"));
+		if(implicitwait!=null)
+			return implicitwait;
+		else
+			return 0;
+	}
+	
 }
