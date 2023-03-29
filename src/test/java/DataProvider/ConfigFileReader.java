@@ -53,10 +53,7 @@ public class ConfigFileReader {
 	public long getImplicitWait()
 	{
 		Long implicitwait=Long.parseLong(properties.getProperty("implicitwait"));
-		if(implicitwait!=null)
-			return implicitwait;
-		else
-			return 0;
+		return implicitwait;
 	}
 	
 }

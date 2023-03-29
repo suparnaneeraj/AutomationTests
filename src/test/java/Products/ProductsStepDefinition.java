@@ -42,7 +42,7 @@ public class ProductsStepDefinition {
 	@Given("^the user is in products page$")
 	public void the_user_is_in_products_page() throws Throwable{
 		try {
-		
+		webDriverClass.openApplication();
 		loginPage.EnterCredentials("standard_user", "secret_sauce");
 		loginPage.Login();
 		Assert.assertTrue((productPage.getProductPageTitle()).equals("Products"));
