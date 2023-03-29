@@ -11,7 +11,7 @@ import io.cucumber.java.en.Then;
 import Utility.WebDriverClass;
 import io.cucumber.java.Before;
 
-public class LoginStepDefinition{
+public class LoginStepDefinition {
     protected LoginPage loginpage;
     private String errormessage ="Epic sadface: Username and password do not match any user in this service";
     private WebDriverClass webDriverClass=new WebDriverClass();
@@ -21,7 +21,7 @@ public class LoginStepDefinition{
     public void setUp()
     {
         webDriverClass.CreateWebDriver();
-
+        webDriverClass.openApplication();
     }
     @Given("^the user is in the login page$")
     public void the_user_is_in_the_login_page() throws InterruptedException
