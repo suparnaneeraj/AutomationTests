@@ -11,6 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import DataProvider.ConfigFileReader;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class WebDriverClass extends ConfigFileReader {
 	 public  WebDriver driver=null;
@@ -24,8 +25,8 @@ public class WebDriverClass extends ConfigFileReader {
 		case "chrome": 
 			ChromeOptions option = new ChromeOptions();
 			option.addArguments("--remote-allow-origins=*");
-//      	WebDriverManager.chromedriver().setup();
-			System.setProperty("webdriver.chrome.driver", driverlocation);
+			WebDriverManager.chromedriver().setup();
+			//System.setProperty("webdriver.chrome.driver", driverlocation);
 			driver = new ChromeDriver(option);
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(getImplicitWait()));
 			break;
