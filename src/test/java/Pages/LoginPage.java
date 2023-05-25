@@ -1,39 +1,48 @@
 package Pages;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-public class LoginPage {
-    protected WebDriver driver;
+
+
+import Utility.GetWebElements;
+public class LoginPage extends GetWebElements{
     private String errormessage;
-    public String loginpagetitile;
-    private By usernameBy = By.id("user-name");
-    private By passwordBy = By.id("password");
-    private By loginBy = By.id("login-button");
-    private By loginPage = By.className("login_logo");
-    private By loginError = By.xpath("//div[@class='error-message-container error']");
+    public String loginpagetitile,usernameField="user-name",passwordField="password",loginButton="login-button",loginPage="login_logo",loginError="//div[@class='error-message-container error']";
+//  WebElement loginError ;;
+//    @FindBy(id="user-name")
+//    WebElement usernameField;
+//    @FindBy(id="password")
+//    WebElement passwordField;
+//    @FindBy(id="login-button")
+//    WebElement login;
+//    @FindBy(className="login_logo")
+//    WebElement loginPage;
+//    @FindBy(xpath="//div[@class='error-message-container error']")
+//    WebElement loginError ;
+    
+    
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public String getLoginPageTitle() {
-        loginpagetitile = driver.getTitle();
+        loginpagetitile = getClassNameElement(loginPage).getText();
         return loginpagetitile;
     }
 
     public void EnterCredentials(String username, String password) {
-        driver.findElement(usernameBy).sendKeys(username);
-        driver.findElement(passwordBy).sendKeys(password);
+    	getIdElement(usernameField).sendKeys(username);
+    	getIdElement(passwordField).sendKeys(password);
 
 
     }
 
     public void Login() {
-        driver.findElement(loginBy).click();
+        getIdElement(loginButton).click();
     }
 
     public String getErrorMessage()
     {
-        errormessage=driver.findElement(loginError).getText();
+        errormessage=getXpathElement(loginError).getText();
         return errormessage;
     }
 

@@ -33,6 +33,7 @@ public class ProductsStepDefinition {
 	    public void setUp()
 	    {
 	        webDriverClass.CreateWebDriver();
+	        webDriverClass.openApplication();
 	        loginPage=new LoginPage(webDriverClass.getDriver());
 	        productPage=new ProductsPage(webDriverClass.getDriver());
 	        cartPage=new CartPage(webDriverClass.getDriver());

@@ -1,5 +1,6 @@
 Feature: Login Functionality
 
+@Test
   Scenario Outline: Verify if the login is success on providing correct credentials
 
     Given the user is in the login page
