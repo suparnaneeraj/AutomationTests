@@ -13,7 +13,7 @@ import org.openqa.selenium.safari.SafariDriver;
 import DataProvider.ConfigFileReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class WebDriverClass extends ConfigFileReader {
+public class CucumberHelper extends ConfigFileReader {
 	 public  WebDriver driver=null;
 	
 	public void CreateWebDriver()
