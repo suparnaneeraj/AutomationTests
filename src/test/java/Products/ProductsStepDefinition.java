@@ -11,7 +11,7 @@ import Pages.CartPage;
 import Pages.LoginPage;
 import Pages.ProductDetailsPage;
 import Pages.ProductsPage;
-import Utility.WebDriverClass;
+import Utility.CucumberHelper;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -28,16 +28,16 @@ public class ProductsStepDefinition {
 	CartPage cartPage;
 	ProductDetailsPage productDetailsPage;
 	List<String> productList = new ArrayList<String>();
-	WebDriverClass webDriverClass=new WebDriverClass()	;
+	 CucumberHelper helper=new CucumberHelper();
 	@Before
 	    public void setUp()
 	    {
-	        webDriverClass.CreateWebDriver();
-	        webDriverClass.openApplication();
-	        loginPage=new LoginPage(webDriverClass.getDriver());
-	        productPage=new ProductsPage(webDriverClass.getDriver());
-	        cartPage=new CartPage(webDriverClass.getDriver());
-	        productDetailsPage=new ProductDetailsPage(webDriverClass.getDriver());
+	        helper.CreateWebDriver();
+	        helper.openApplication();
+	        loginPage=new LoginPage(helper.getDriver());
+	        productPage=new ProductsPage(helper.getDriver());
+	        cartPage=new CartPage(helper.getDriver());
+	        productDetailsPage=new ProductDetailsPage(helper.getDriver());
 	    }
 	
 	@Given("^the user is in products page$")
@@ -170,7 +170,7 @@ public class ProductsStepDefinition {
 	@After
     public void tearDown(){
 
-        webDriverClass.getDriver().close();
+        helper.getDriver().close();
     }
 	
 

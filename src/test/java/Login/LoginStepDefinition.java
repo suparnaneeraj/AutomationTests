@@ -4,30 +4,32 @@ import Pages.LoginPage;
 import Pages.ProductsPage;
 import io.cucumber.java.After;
 import org.junit.Assert;
+import org.junit.Test;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
-import Utility.WebDriverClass;
+import Utility.CucumberHelper;
 import io.cucumber.java.Before;
 
 public class LoginStepDefinition {
     protected LoginPage loginpage;
     private String errormessage ="Epic sadface: Username and password do not match any user in this service";
-    private WebDriverClass webDriverClass=new WebDriverClass();
+    CucumberHelper helper=new CucumberHelper();
     protected ProductsPage productsPage;
 
     @Before
     public void setUp()
     {
-        webDriverClass.CreateWebDriver();
-        webDriverClass.openApplication();
+    	helper.CreateWebDriver();
+    	helper.openApplication();
     }
     @Given("^the user is in the login page$")
     public void the_user_is_in_the_login_page() throws InterruptedException
     {
         try{
-            loginpage=new LoginPage(webDriverClass.getDriver());
+            loginpage=new LoginPage(helper.getDriver());
             Assert.assertTrue("The user is not in the Login page",loginpage.getLoginPageTitle()!="Swag Labs");
 
         }
@@ -66,7 +68,7 @@ public class LoginStepDefinition {
     public void user_should_be_logged_in_successfully() throws InterruptedException
     {
         try {
-            productsPage=new ProductsPage(webDriverClass.getDriver());
+            productsPage=new ProductsPage(helper.getDriver());
             Assert.assertTrue("The user is not in the Products page", productsPage.getProductPageTitle() != "Products");
         }
         catch (Exception e)
@@ -84,6 +86,6 @@ public class LoginStepDefinition {
     @After
     public void tearDown(){
 
-        webDriverClass.getDriver().close();
+    	helper.getDriver().close();
     }
 }
